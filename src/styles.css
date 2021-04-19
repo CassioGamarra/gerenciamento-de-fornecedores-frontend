@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.blue {
+    color: #083B66;
+}
+
+.v-middle {
+    vertical-align: middle;
+}
+
+.toast {
+    font-weight: 500;
+    color: #ffffff
+}
+
+.success {
+    background-color: #4caf50; 
+}
+
+.info {
+    background-color: #2196f3; 
+}
+
+.warning {
+    background-color: #ff9800; 
+}
+
+.error {
+    background-color: #f44336; 
+}
+
+.mat-simple-snackbar-action {
+    color: #ffffff
+}

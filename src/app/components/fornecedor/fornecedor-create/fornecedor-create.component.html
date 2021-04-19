@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-title>Novo Fornecedor</mat-card-title>
+    <form>
+        <mat-form-field appearance="outline">
+            <mat-label>CNPJ</mat-label>
+            <input matInput placeholder="CNPJ">
+        </mat-form-field> 
+        <mat-form-field appearance="outline">
+            <mat-label>Nome *</mat-label>
+            <input matInput placeholder="Nome *">
+        </mat-form-field>  
+        <mat-form-field appearance="outline">
+            <mat-label>Tipo de fornecedor</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let tipo of tiposFornecedores" [value]="tipo.id">
+                    {{tipo.descricao}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</mat-card>
+<button mat-raised-button (click)="createFornecedor()" color="primary">
+    Salvar
+</button>
+<button mat-raised-button (click)="cancel()">
+    Cancelar
+</button>
