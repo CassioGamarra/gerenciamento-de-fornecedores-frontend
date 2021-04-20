@@ -5,6 +5,7 @@ import { HomeComponent } from './views/home/home.component';
 import { FornecedoresComponent } from './views/fornecedores/fornecedores.component';
 import { TiposFornecedoresComponent } from './views/tipos-fornecedores/tipos-fornecedores.component';
 import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-create/fornecedor-create.component';
+import { TipoFornecedorCreateComponent } from './components/tipo-fornecedor/tipo-fornecedor-create/tipo-fornecedor-create.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: "fornecedores/novo",
     component: FornecedorCreateComponent
+  },
+  {
+    path: "tipos-fornecedores/novo",
+    component: TipoFornecedorCreateComponent
   }
 ];
 

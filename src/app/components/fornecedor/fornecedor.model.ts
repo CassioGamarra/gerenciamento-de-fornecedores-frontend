@@ -9,5 +9,5 @@ export interface Fornecedor {
     municipio: string
     uf: string
     status: boolean
-    tipoFornecedor: object
+    tipoFornecedor: any
 }

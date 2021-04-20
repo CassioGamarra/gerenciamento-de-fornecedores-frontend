@@ -6,5 +6,23 @@
         "pathRewrite": {
             "^/api" : "/api/v1"
         }
+    },
+
+    "/receitaws/": {
+        "target": "https://www.receitaws.com.br/v1/cnpj/",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+          "^/receitaws/": ""
+        }
+    },
+
+    "/viacep/": {
+        "target": "https://viacep.com.br/ws/",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+          "^/viacep/": ""
+        }
     }
 }

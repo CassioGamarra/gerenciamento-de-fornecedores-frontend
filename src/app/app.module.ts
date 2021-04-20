@@ -17,7 +17,8 @@ import { HomeComponent } from './views/home/home.component';
 import { FornecedoresComponent } from './views/fornecedores/fornecedores.component';
 import { TiposFornecedoresComponent } from './views/tipos-fornecedores/tipos-fornecedores.component';
 //Material 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TextMaskModule } from 'angular2-text-mask';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -27,7 +28,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-  
+import { MatIconModule } from '@angular/material/icon';
+import { TipoFornecedorCreateComponent } from './components/tipo-fornecedor/tipo-fornecedor-create/tipo-fornecedor-create.component'; 
  
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { MatSelectModule } from '@angular/material/select';
     FornecedoresComponent,
     TiposFornecedoresComponent,
     FornecedorCreateComponent,
+    TipoFornecedorCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +55,12 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     MatSnackBarModule,
     FormsModule,
+    ReactiveFormsModule,
+    TextMaskModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule 
+    MatSelectModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

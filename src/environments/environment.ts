@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  BASE_URL: "/api"
+  BASE_URL: "/api",
+  BASE_URL_RECEITA_WS: "/receitaws/",
+  BASE_URL_VIACEP: "/viacep/"
 };
 
 /*
