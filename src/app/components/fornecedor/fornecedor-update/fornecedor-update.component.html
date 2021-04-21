@@ -1,0 +1,73 @@
+<mat-card> 
+    <mat-card-title>Alterar Fornecedor</mat-card-title>
+    <form [formGroup]="fornecedorForm" autocomplete="off" (ngSubmit)="updateFornecedor(fornecedorForm.value)">
+        <div class="container"> 
+            <mat-form-field appearance="outline" class="full-width-field" style="margin-right: 8px;">
+                <mat-label>CNPJ</mat-label>
+                <input matInput readonly [textMask]="{mask: cnpjMask}" formControlName="cnpj" id="cnpj" placeholder="CNPJ"> 
+                <mat-error *ngIf="hasError('cnpj', 'required') || hasError('cnpj', 'empty') || hasError('cnpj', 'isCNPJ')">Por favor, informe um CNPJ válido!</mat-error>
+            </mat-form-field> 
+        </div>
+        <div class="container"> 
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Nome *</mat-label>
+                <input matInput formControlName="nome" id="nome" placeholder="Nome *">
+                <mat-error *ngIf="hasError('nome', 'required') || hasError('nome', 'empty')">Por favor, informe um nome!</mat-error>
+            </mat-form-field>  
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Tipo de fornecedor</mat-label>
+                <mat-select formControlName="tipoFornecedor" id="tipoFornecedor"> 
+                    <mat-option *ngFor="let tipo of tiposFornecedores" [value]="tipo.id">
+                        {{tipo.descricao}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('tipoFornecedor', 'required')">Por favor, informe um tipo de fornecedor!</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Telefone *</mat-label>
+                <input matInput [textMask]="{mask: telMask}" formControlName="telefone" id="telefone" placeholder="Telefone *">
+                <mat-error *ngIf="hasError('telefone', 'required') || hasError('telefone', 'empty')">Por favor, informe um telefone!</mat-error>
+            </mat-form-field> 
+        </div> 
+        <div class="container"> 
+            <mat-form-field appearance="outline" style="margin-right: 8px;">
+                <mat-label>CEP *</mat-label>
+                <input matInput [textMask]="{mask: cepMask}" formControlName="cep" id="cep" placeholder="CEP *">
+                <mat-error *ngIf="hasError('cep', 'required') || hasError('cep', 'empty') || hasError('cep', 'isCEP')">Por favor, informe um CEP válido!</mat-error>
+            </mat-form-field> 
+            <button mat-mini-fab class="btn-buscar" type="button" [disabled]="hasError('cep', 'isCEP')" (click)="buscarCep(fornecedorForm.value.cep)">
+                <mat-icon class="mat-18">search</mat-icon>
+            </button>
+            <mat-form-field appearance="outline" class="full-width-field" style="margin-left: 8px;">
+                <mat-label>Endereço</mat-label>
+                <input matInput formControlName="endereco" id="endereco" placeholder="Endereço *">
+                <mat-error *ngIf="hasError('endereco', 'required') || hasError('endereco', 'empty')">Por favor, informe um endereço!</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="container"> 
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Bairro</mat-label>
+                <input matInput formControlName="bairro" id="bairro" placeholder="Bairro *">
+                <mat-error *ngIf="hasError('bairro', 'required') || hasError('bairro', 'empty')">Por favor, informe um bairro!</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Município</mat-label>
+                <input matInput formControlName="municipio" id="municipio" readonly placeholder="Município *">
+                <mat-error *ngIf="hasError('municipio', 'required') || hasError('municipio', 'empty')">Por favor, informe um município!</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>UF</mat-label>
+                <input matInput formControlName="uf" id="uf" readonly placeholder="UF *">
+                <mat-error *ngIf="hasError('uf', 'required') || hasError('uf', 'empty')">Por favor, informe um estado!</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="container"> 
+            <button mat-raised-button type="submit" [disabled]="!fornecedorForm.valid" class="btn-salvar">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="cancel()">
+                Cancelar
+            </button> 
+        </div>
+    </form>
+</mat-card>

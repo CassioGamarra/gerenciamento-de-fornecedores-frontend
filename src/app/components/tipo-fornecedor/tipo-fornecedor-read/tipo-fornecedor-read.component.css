@@ -1,0 +1,11 @@
+table {
+    width: 100%;
+}
+
+.action.edit{
+    color: #ff9800
+}
+
+.action.delete{
+    color: #f44336
+}

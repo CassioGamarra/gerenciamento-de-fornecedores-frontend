@@ -27,4 +27,18 @@ export class FornecedorService {
   create(fornecedor: Fornecedor): Observable<any> {
     return this.http.post<any>(environment.BASE_URL+'/fornecedores', fornecedor);
   } 
+
+  read(): Observable<Fornecedor[]> {
+    return this.http.get<Fornecedor[]>(environment.BASE_URL+'/fornecedores/all');
+  }
+
+  readById(id: string): Observable<Fornecedor> { 
+    const url = `${environment.BASE_URL}/fornecedores/${id}`;
+    return this.http.get<Fornecedor>(url);
+  }
+
+  update(fornecedor: Fornecedor): Observable<any>{
+    const url = `${environment.BASE_URL}/fornecedores/edit/${fornecedor.id}`;
+    return this.http.put<any>(url, fornecedor);
+  }
 }

@@ -14,6 +14,6 @@ export class TiposFornecedoresComponent implements OnInit {
   }
 
   navigateToTipoFornecedorCreate(): void {
-    this.router.navigate(['/tipos-fornecedores/novo']);
+    this.router.navigate(['/tiposfornecedores/novo']);
   }
 }

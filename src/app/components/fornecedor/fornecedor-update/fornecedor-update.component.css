@@ -1,0 +1,28 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.container .mat-form-field + .mat-form-field {
+    margin-left: 8px; 
+} 
+
+.full-width-field {
+    width: 100%;
+}
+
+.btn-salvar {
+    margin-right: 8px;
+    color: #FFFFFF;
+    background-color: #083B66;
+}
+
+.btn-buscar {
+    margin-top: 8px;
+    background-color: #083B66;
+}

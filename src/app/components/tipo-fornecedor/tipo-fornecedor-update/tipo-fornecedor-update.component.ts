@@ -1,17 +1,18 @@
 import { TipoFornecedor } from './../tipo-fornecedor.model';
 import { TipoFornecedorService } from './../tipo-fornecedor.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http'; 
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-tipo-fornecedor-create',
-  templateUrl: './tipo-fornecedor-create.component.html',
-  styleUrls: ['./tipo-fornecedor-create.component.css']
+  selector: 'app-tipo-fornecedor-update',
+  templateUrl: './tipo-fornecedor-update.component.html',
+  styleUrls: ['./tipo-fornecedor-update.component.css']
 })
-export class TipoFornecedorCreateComponent implements OnInit { 
+export class TipoFornecedorUpdateComponent implements OnInit {
   tipoFornecedor: TipoFornecedor = {
+    id: 0,
     descricao: ''
   } 
 
@@ -20,12 +21,20 @@ export class TipoFornecedorCreateComponent implements OnInit {
   constructor(
     private tipoFornecedorService: TipoFornecedorService,
     private router: Router,
+    private route: ActivatedRoute,
     private http: HttpClient,
     private formBuilder: FormBuilder
   ) { }
  
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    const id:any = this.route.snapshot.paramMap.get('id');
+
+    this.tipoFornecedorService.readById(id).subscribe(data => {  
+      this.tipoFornecedorForm.patchValue(data); 
+    });
+
     this.tipoFornecedorForm = new FormGroup({
+      id: new FormControl('', [Validators.required]),
       descricao: new FormControl('', [Validators.required, this.isEmpty])
     })
   }
@@ -34,7 +43,7 @@ export class TipoFornecedorCreateComponent implements OnInit {
     return this.tipoFornecedorForm.controls[controlName].hasError(errorName);
   }
 
-  createTipoFornecedor = (tipoFornecedorFormValue: any) => {
+  updateTipoFornecedor = (tipoFornecedorFormValue: any) => {
     this.tipoFornecedor.descricao = tipoFornecedorFormValue.descricao.trim(); 
     this.tipoFornecedorService.create(this.tipoFornecedor).subscribe((response) => { 
       if(response.success) { 
@@ -58,4 +67,3 @@ export class TipoFornecedorCreateComponent implements OnInit {
     return isValid ? null : {'empty': true}
   }
 }
- 

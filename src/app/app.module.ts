@@ -29,7 +29,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
-import { TipoFornecedorCreateComponent } from './components/tipo-fornecedor/tipo-fornecedor-create/tipo-fornecedor-create.component'; 
+import { TipoFornecedorCreateComponent } from './components/tipo-fornecedor/tipo-fornecedor-create/tipo-fornecedor-create.component';
+import { FornecedorReadComponent } from './components/fornecedor/fornecedor-read/fornecedor-read.component'; 
+import { MatTableModule } from '@angular/material/table'; 
+import { TipoFornecedorReadComponent } from './components/tipo-fornecedor/tipo-fornecedor-read/tipo-fornecedor-read.component';
+import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
+import { TipoFornecedorUpdateComponent } from './components/tipo-fornecedor/tipo-fornecedor-update/tipo-fornecedor-update.component'; 
  
 @NgModule({
   declarations: [
@@ -42,6 +47,8 @@ import { TipoFornecedorCreateComponent } from './components/tipo-fornecedor/tipo
     TiposFornecedoresComponent,
     FornecedorCreateComponent,
     TipoFornecedorCreateComponent,
+    FornecedorReadComponent, 
+    TipoFornecedorReadComponent, FornecedorUpdateComponent, TipoFornecedorUpdateComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +67,8 @@ import { TipoFornecedorCreateComponent } from './components/tipo-fornecedor/tipo
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

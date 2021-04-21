@@ -6,6 +6,8 @@ import { FornecedoresComponent } from './views/fornecedores/fornecedores.compone
 import { TiposFornecedoresComponent } from './views/tipos-fornecedores/tipos-fornecedores.component';
 import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-create/fornecedor-create.component';
 import { TipoFornecedorCreateComponent } from './components/tipo-fornecedor/tipo-fornecedor-create/tipo-fornecedor-create.component';
+import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
+import { TipoFornecedorUpdateComponent } from './components/tipo-fornecedor/tipo-fornecedor-update/tipo-fornecedor-update.component';
 
 
 const routes: Routes = [
@@ -18,7 +20,7 @@ const routes: Routes = [
     component: FornecedoresComponent
   },
   {
-    path: "tipos-fornecedores",
+    path: "tiposfornecedores",
     component: TiposFornecedoresComponent
   },
   {
@@ -26,8 +28,16 @@ const routes: Routes = [
     component: FornecedorCreateComponent
   },
   {
-    path: "tipos-fornecedores/novo",
+    path: "tiposfornecedores/novo",
     component: TipoFornecedorCreateComponent
+  },
+  {
+    path: "fornecedores/edit/:id",
+    component: FornecedorUpdateComponent
+  },
+  {
+    path: "tiposfornecedores/edit/:id",
+    component: TipoFornecedorUpdateComponent
   }
 ];
 
