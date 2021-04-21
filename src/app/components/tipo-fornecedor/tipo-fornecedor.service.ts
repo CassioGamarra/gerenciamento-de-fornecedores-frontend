@@ -37,9 +37,14 @@ export class TipoFornecedorService {
     return this.http.get<TipoFornecedor>(url);
   }
 
-  update(tipoFornecedor: TipoFornecedor): Observable<TipoFornecedor>{
+  update(tipoFornecedor: TipoFornecedor): Observable<any>{
     const url = `${environment.BASE_URL}/tiposfornecedores/edit/${tipoFornecedor.id}`;
-    return this.http.put<TipoFornecedor>(url, tipoFornecedor);
+    return this.http.put<any>(url, tipoFornecedor);
+  }
+
+  delete(id: string): Observable<any>{
+    const url = `${environment.BASE_URL}/tiposfornecedores/delete/${id}`;
+    return this.http.delete<any>(url);
   }
 }
  

@@ -8,7 +8,8 @@ import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-cr
 import { TipoFornecedorCreateComponent } from './components/tipo-fornecedor/tipo-fornecedor-create/tipo-fornecedor-create.component';
 import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
 import { TipoFornecedorUpdateComponent } from './components/tipo-fornecedor/tipo-fornecedor-update/tipo-fornecedor-update.component';
-
+import { TipoFornecedorDeleteComponent } from './components/tipo-fornecedor/tipo-fornecedor-delete/tipo-fornecedor-delete.component';
+import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-delete/fornecedor-delete.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,14 @@ const routes: Routes = [
   {
     path: "tiposfornecedores/edit/:id",
     component: TipoFornecedorUpdateComponent
+  },
+  {
+    path: "fornecedores/delete/:id",
+    component: FornecedorDeleteComponent
+  },
+  {
+    path: "tiposfornecedores/delete/:id",
+    component: TipoFornecedorDeleteComponent
   }
 ];
 

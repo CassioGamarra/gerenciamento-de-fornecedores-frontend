@@ -41,4 +41,9 @@ export class FornecedorService {
     const url = `${environment.BASE_URL}/fornecedores/edit/${fornecedor.id}`;
     return this.http.put<any>(url, fornecedor);
   }
+
+  delete(id: string): Observable<any>{
+    const url = `${environment.BASE_URL}/fornecedores/delete/${id}`;
+    return this.http.delete<any>(url);
+  }
 }

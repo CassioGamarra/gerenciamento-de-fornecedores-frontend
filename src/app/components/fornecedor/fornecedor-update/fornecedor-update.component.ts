@@ -62,7 +62,7 @@ export class FornecedorUpdateComponent implements OnInit {
     this.fornecedorForm = new FormGroup({ 
       id: new FormControl('', [Validators.required]),
       nome:  new FormControl('', [Validators.required, this.isEmpty]),
-      cnpj:  new FormControl('', [Validators.required, this.isEmpty, this.isCNPJ]),
+      cnpj:  new FormControl({value: '', disabled: true}),
       telefone:  new FormControl('', [Validators.required, this.isEmpty]),
       cep:  new FormControl('', [Validators.required, this.isEmpty, this.isCEP]),
       endereco:  new FormControl('', [Validators.required, this.isEmpty]),

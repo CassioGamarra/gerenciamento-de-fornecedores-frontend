@@ -11,6 +11,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./tipo-fornecedor-update.component.css']
 })
 export class TipoFornecedorUpdateComponent implements OnInit {
+  
   tipoFornecedor: TipoFornecedor = {
     id: 0,
     descricao: ''
@@ -44,8 +45,9 @@ export class TipoFornecedorUpdateComponent implements OnInit {
   }
 
   updateTipoFornecedor = (tipoFornecedorFormValue: any) => {
+    this.tipoFornecedor.id = Number(tipoFornecedorFormValue.id);
     this.tipoFornecedor.descricao = tipoFornecedorFormValue.descricao.trim(); 
-    this.tipoFornecedorService.create(this.tipoFornecedor).subscribe((response) => { 
+    this.tipoFornecedorService.update(this.tipoFornecedor).subscribe((response) => { 
       if(response.success) { 
         this.tipoFornecedorService.showMessage(response.message, 'success'); 
         this.router.navigate(['/tiposfornecedores']);

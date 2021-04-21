@@ -34,7 +34,9 @@ import { FornecedorReadComponent } from './components/fornecedor/fornecedor-read
 import { MatTableModule } from '@angular/material/table'; 
 import { TipoFornecedorReadComponent } from './components/tipo-fornecedor/tipo-fornecedor-read/tipo-fornecedor-read.component';
 import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
-import { TipoFornecedorUpdateComponent } from './components/tipo-fornecedor/tipo-fornecedor-update/tipo-fornecedor-update.component'; 
+import { TipoFornecedorUpdateComponent } from './components/tipo-fornecedor/tipo-fornecedor-update/tipo-fornecedor-update.component';
+import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-delete/fornecedor-delete.component';
+import { TipoFornecedorDeleteComponent } from './components/tipo-fornecedor/tipo-fornecedor-delete/tipo-fornecedor-delete.component'; 
  
 @NgModule({
   declarations: [
@@ -48,7 +50,7 @@ import { TipoFornecedorUpdateComponent } from './components/tipo-fornecedor/tipo
     FornecedorCreateComponent,
     TipoFornecedorCreateComponent,
     FornecedorReadComponent, 
-    TipoFornecedorReadComponent, FornecedorUpdateComponent, TipoFornecedorUpdateComponent,
+    TipoFornecedorReadComponent, FornecedorUpdateComponent, TipoFornecedorUpdateComponent, FornecedorDeleteComponent, TipoFornecedorDeleteComponent,
   ],
   imports: [
     BrowserModule,

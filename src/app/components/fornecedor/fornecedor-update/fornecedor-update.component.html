@@ -1,8 +1,8 @@
 <mat-card> 
-    <mat-card-title>Alterar Fornecedor</mat-card-title>
+    <mat-card-title>Editar Fornecedor</mat-card-title>
     <form [formGroup]="fornecedorForm" autocomplete="off" (ngSubmit)="updateFornecedor(fornecedorForm.value)">
         <div class="container"> 
-            <mat-form-field appearance="outline" class="full-width-field" style="margin-right: 8px;">
+            <mat-form-field appearance="outline" class="full-width-field" >
                 <mat-label>CNPJ</mat-label>
                 <input matInput readonly [textMask]="{mask: cnpjMask}" formControlName="cnpj" id="cnpj" placeholder="CNPJ"> 
                 <mat-error *ngIf="hasError('cnpj', 'required') || hasError('cnpj', 'empty') || hasError('cnpj', 'isCNPJ')">Por favor, informe um CNPJ válido!</mat-error>

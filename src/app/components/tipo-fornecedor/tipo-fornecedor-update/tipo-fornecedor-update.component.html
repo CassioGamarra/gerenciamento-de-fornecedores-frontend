@@ -1,12 +1,11 @@
 <mat-card>
-    <mat-card-title>Alterar Tipo de Fornecedor</mat-card-title>
+    <mat-card-title>Editar Tipo de Fornecedor</mat-card-title>
     <form [formGroup]="tipoFornecedorForm" autocomplete="off" (ngSubmit)="updateTipoFornecedor(tipoFornecedorForm.value)"> 
         <div class="container"> 
             <mat-form-field appearance="outline" class="full-width-field">
                 <mat-label>Descrição *</mat-label>
                 <input matInput formControlName="descricao" id="descricao" placeholder="Descrição *">
-                <mat-error *ngIf="hasError('descricao', 'required')">Por favor, informe a descrição!</mat-error>
-                <mat-error *ngIf="hasError('descricao', 'empty')">Por favor, informe a descrição!</mat-error>
+                <mat-error *ngIf="hasError('descricao', 'empty') || hasError('descricao', 'required')">Por favor, informe a descrição!</mat-error> 
             </mat-form-field>   
         </div>   
         <div class="container"> 

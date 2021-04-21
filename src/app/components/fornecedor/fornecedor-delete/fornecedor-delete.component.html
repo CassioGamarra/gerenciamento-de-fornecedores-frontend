@@ -1,0 +1,61 @@
+<mat-card> 
+    <mat-card-title>Excluir Fornecedor</mat-card-title>
+    <form [formGroup]="fornecedorForm" autocomplete="off" (ngSubmit)="deleteFornecedor(fornecedorForm.value)">
+        <div class="container"> 
+            <mat-form-field appearance="outline" class="full-width-field" style="margin-right: 8px;">
+                <mat-label>CNPJ</mat-label>
+                <input matInput readonly [textMask]="{mask: cnpjMask}" formControlName="cnpj" id="cnpj" placeholder="CNPJ"> 
+           </mat-form-field> 
+        </div>
+        <div class="container"> 
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Nome *</mat-label>
+                <input matInput formControlName="nome" id="nome" placeholder="Nome *"> 
+            </mat-form-field>  
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Tipo de fornecedor</mat-label>
+                <mat-select formControlName="tipoFornecedor" id="tipoFornecedor"> 
+                    <mat-option *ngFor="let tipo of tiposFornecedores" [value]="tipo.id">
+                        {{tipo.descricao}}
+                    </mat-option>
+                </mat-select> 
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Telefone *</mat-label>
+                <input matInput [textMask]="{mask: telMask}" formControlName="telefone" id="telefone" placeholder="Telefone *"> 
+            </mat-form-field> 
+        </div> 
+        <div class="container"> 
+            <mat-form-field appearance="outline" style="margin-right: 8px;">
+                <mat-label>CEP *</mat-label>
+                <input matInput [textMask]="{mask: cepMask}" formControlName="cep" id="cep" placeholder="CEP *"> 
+            </mat-form-field>  
+            <mat-form-field appearance="outline" class="full-width-field" style="margin-left: 8px;">
+                <mat-label>Endereço</mat-label>
+                <input matInput formControlName="endereco" id="endereco" placeholder="Endereço *"> 
+            </mat-form-field>
+        </div>
+        <div class="container"> 
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Bairro</mat-label>
+                <input matInput formControlName="bairro" id="bairro" placeholder="Bairro *"> 
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Município</mat-label>
+                <input matInput formControlName="municipio" id="municipio" readonly placeholder="Município *"> 
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>UF</mat-label>
+                <input matInput formControlName="uf" id="uf" readonly placeholder="UF *"> 
+            </mat-form-field>
+        </div>
+        <div class="container"> 
+            <button mat-raised-button type="submit" class="btn-salvar">
+                Excluir
+            </button>
+            <button mat-raised-button type="button" (click)="cancel()">
+                Cancelar
+            </button> 
+        </div>
+    </form>
+</mat-card>
