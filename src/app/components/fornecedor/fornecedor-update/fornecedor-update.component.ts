@@ -91,8 +91,7 @@ export class FornecedorUpdateComponent implements OnInit {
 
   updateFornecedor = (fornecedorFormValue: any) => {  
     this.fornecedor.id = Number(fornecedorFormValue.id);
-    this.fornecedor.nome = fornecedorFormValue.nome.trim(),
-    this.fornecedor.cnpj = fornecedorFormValue.cnpj.replace(/[^\d]+/g, ''),
+    this.fornecedor.nome = fornecedorFormValue.nome.trim(), 
     this.fornecedor.telefone = fornecedorFormValue.telefone.replace(/[^\d]+/g, ''),
     this.fornecedor.cep = fornecedorFormValue.cep.replace(/[^\d]+/g, ''),
     this.fornecedor.endereco = fornecedorFormValue.endereco.trim(),
