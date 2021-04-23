@@ -64,8 +64,12 @@ export class FornecedorCreateComponent implements OnInit {
 
   buscarCnpj = (cnpj: string) =>  {   
     cnpj = cnpj.replace(/[^\d]+/g, '');
-      
-    this.http.get(environment.BASE_URL_RECEITA_WS+cnpj).subscribe((data : any)=> {
+    
+    this.http.get(environment.BASE_URL_RECEITA_WS+cnpj, {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    }).subscribe((data : any)=> {
       if(data.erro) {
         this.fornecedorService.showMessage('CNPJ não encontrado', 'info'); 
       } else {   

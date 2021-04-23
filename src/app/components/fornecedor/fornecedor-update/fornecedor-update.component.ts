@@ -62,7 +62,7 @@ export class FornecedorUpdateComponent implements OnInit {
     this.fornecedorForm = new FormGroup({ 
       id: new FormControl('', [Validators.required]),
       nome:  new FormControl('', [Validators.required, this.isEmpty]),
-      cnpj:  new FormControl({value: '', disabled: true}),
+      cnpj:  new FormControl(''),
       telefone:  new FormControl('', [Validators.required, this.isEmpty]),
       cep:  new FormControl('', [Validators.required, this.isEmpty, this.isCEP]),
       endereco:  new FormControl('', [Validators.required, this.isEmpty]),
@@ -89,8 +89,9 @@ export class FornecedorUpdateComponent implements OnInit {
     })
   }
 
-  updateFornecedor = (fornecedorFormValue: any) => {  
+  updateFornecedor = (fornecedorFormValue: any) => {    
     this.fornecedor.id = Number(fornecedorFormValue.id);
+    this.fornecedor.cnpj = fornecedorFormValue.cnpj.replace(/[^\d]+/g, ''), 
     this.fornecedor.nome = fornecedorFormValue.nome.trim(), 
     this.fornecedor.telefone = fornecedorFormValue.telefone.replace(/[^\d]+/g, ''),
     this.fornecedor.cep = fornecedorFormValue.cep.replace(/[^\d]+/g, ''),

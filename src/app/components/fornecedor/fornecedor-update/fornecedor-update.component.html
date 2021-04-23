@@ -5,7 +5,6 @@
             <mat-form-field appearance="outline" class="full-width-field" >
                 <mat-label>CNPJ</mat-label>
                 <input matInput readonly [textMask]="{mask: cnpjMask}" formControlName="cnpj" id="cnpj" placeholder="CNPJ"> 
-                <mat-error *ngIf="hasError('cnpj', 'required') || hasError('cnpj', 'empty') || hasError('cnpj', 'isCNPJ')">Por favor, informe um CNPJ válido!</mat-error>
             </mat-form-field> 
         </div>
         <div class="container"> 
