@@ -35,3 +35,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-simple-snackbar-action {
     color: #ffffff
 }
+
+.no-itens{
+    background-color: #083B66;
+    color: #FFFFFF;  
+    font-weight: 700;
+    font-size: 1.7em;
+}

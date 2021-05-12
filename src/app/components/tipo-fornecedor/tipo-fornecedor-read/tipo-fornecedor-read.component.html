@@ -1,5 +1,8 @@
 <div class="mat-elevation-z4">
-    <table mat-table [dataSource]="tiposFornecedores">
+  <mat-toolbar-row *ngIf="tiposFornecedores.length === 0" class="no-itens" style="display: grid; text-align: center;">
+    <span>NENHUM TIPO DE FORNECEDOR CADASTRADO</span>
+  </mat-toolbar-row>
+    <table *ngIf="tiposFornecedores.length > 0" mat-table [dataSource]="tiposFornecedores">
       <!-- Id Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>Id</th>

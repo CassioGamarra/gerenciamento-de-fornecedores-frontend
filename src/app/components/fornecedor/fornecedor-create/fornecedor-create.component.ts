@@ -101,15 +101,15 @@ export class FornecedorCreateComponent implements OnInit {
   }
 
   createFornecedor = (fornecedorFormValue: any) => {  
-    this.fornecedor.nome = fornecedorFormValue.nome.trim(),
-    this.fornecedor.cnpj = fornecedorFormValue.cnpj.replace(/[^\d]+/g, ''),
-    this.fornecedor.telefone = fornecedorFormValue.telefone.replace(/[^\d]+/g, ''),
-    this.fornecedor.cep = fornecedorFormValue.cep.replace(/[^\d]+/g, ''),
-    this.fornecedor.endereco = fornecedorFormValue.endereco.trim(),
-    this.fornecedor.bairro = fornecedorFormValue.bairro.trim(),
-    this.fornecedor.municipio = fornecedorFormValue.municipio.trim(),
-    this.fornecedor.uf = fornecedorFormValue.uf.trim(), 
-    this.fornecedor.tipoFornecedor.id = Number(fornecedorFormValue.tipoFornecedor) 
+    this.fornecedor.nome = fornecedorFormValue.nome.trim();
+    this.fornecedor.cnpj = fornecedorFormValue.cnpj.replace(/[^\d]+/g, '');
+    this.fornecedor.telefone = fornecedorFormValue.telefone.replace(/[^\d]+/g, '');
+    this.fornecedor.cep = fornecedorFormValue.cep.replace(/[^\d]+/g, '');
+    this.fornecedor.endereco = fornecedorFormValue.endereco.trim();
+    this.fornecedor.bairro = fornecedorFormValue.bairro.trim();
+    this.fornecedor.municipio = fornecedorFormValue.municipio.trim();
+    this.fornecedor.uf = fornecedorFormValue.uf.trim();
+    this.fornecedor.tipoFornecedor.id = Number(fornecedorFormValue.tipoFornecedor);
 
     this.fornecedorService.create(this.fornecedor).subscribe((response) => { 
       if(response.success) { 

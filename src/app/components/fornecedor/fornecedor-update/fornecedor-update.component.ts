@@ -13,7 +13,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class FornecedorUpdateComponent implements OnInit {
   
-  fornecedor: Fornecedor = {
+  fornecedor: Fornecedor = { 
     id: 0,
     nome: '',
     cnpj: '',

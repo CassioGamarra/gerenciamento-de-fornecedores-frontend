@@ -1,0 +1,47 @@
+<mat-card> 
+    <mat-card-title>Editar Orçamento</mat-card-title>
+    <form [formGroup]="orcamentoForm" autocomplete="off" (ngSubmit)="updateOrcamento(orcamentoForm.value)"> 
+        <div class="container">  
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Fornecedor *</mat-label>
+                <mat-select formControlName="fornecedor" id="fornecedor"> 
+                    <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">
+                        {{fornecedor.nome}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('fornecedor', 'required')">Por favor, informe um fornecedor!</mat-error>
+            </mat-form-field>  
+        </div>
+        <div class="container">
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Descricao *</mat-label>
+                <textarea formControlName="descricao" id="descricao"   matInput placeholder="Descricao *"></textarea> 
+                <mat-error *ngIf="hasError('descricao', 'required') || hasError('descricao', 'empty')">Por favor, informe uma descricao!</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="container">  
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Valor *</mat-label>
+                <input matInput type="number" formControlName="valor" id="valor" placeholder="Valor *">
+                <mat-error *ngIf="hasError('valor', 'required')">Por favor, informe o valor!</mat-error>
+            </mat-form-field> 
+
+            <mat-form-field appearance="outline">
+                <mat-label>Data de vencimento *</mat-label>
+                <input matInput formControlName="vencimento" id="vencimento" placeholder="Data de vencimento *" [matDatepicker]="vencimento">
+                <mat-datepicker-toggle matSuffix [for]="vencimento"></mat-datepicker-toggle>
+                <mat-datepicker #vencimento></mat-datepicker> 
+                <mat-error *ngIf="hasError('vencimento', 'required')">Por favor, informe a data de vencimento!</mat-error>
+                <mat-error *ngIf="hasError('vencimento', 'invalid-date')">A data de vencimento não pode ser menor que a data atual!</mat-error>
+            </mat-form-field> 
+        </div>
+        <div class="container"> 
+            <button mat-raised-button type="submit" [disabled]="!orcamentoForm.valid" class="btn-salvar">
+                Salvar
+            </button>
+            <button mat-raised-button type="button" (click)="cancel()">
+                Cancelar
+            </button> 
+        </div>
+    </form>
+</mat-card>

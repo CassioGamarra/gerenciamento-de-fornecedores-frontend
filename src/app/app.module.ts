@@ -1,3 +1,4 @@
+import { MatNativeDateModule } from '@angular/material/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -28,7 +29,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';  
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { TipoFornecedorCreateComponent } from './components/tipo-fornecedor/tipo-fornecedor-create/tipo-fornecedor-create.component';
 import { FornecedorReadComponent } from './components/fornecedor/fornecedor-read/fornecedor-read.component'; 
 import { MatTableModule } from '@angular/material/table'; 
@@ -36,7 +40,12 @@ import { TipoFornecedorReadComponent } from './components/tipo-fornecedor/tipo-f
 import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
 import { TipoFornecedorUpdateComponent } from './components/tipo-fornecedor/tipo-fornecedor-update/tipo-fornecedor-update.component';
 import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-delete/fornecedor-delete.component';
-import { TipoFornecedorDeleteComponent } from './components/tipo-fornecedor/tipo-fornecedor-delete/tipo-fornecedor-delete.component'; 
+import { TipoFornecedorDeleteComponent } from './components/tipo-fornecedor/tipo-fornecedor-delete/tipo-fornecedor-delete.component';
+import { OrcamentosComponent } from './views/orcamentos/orcamentos.component';
+import { OrcamentoCreateComponent } from './components/orcamento/orcamento-create/orcamento-create.component';
+import { OrcamentoReadComponent } from './components/orcamento/orcamento-read/orcamento-read.component';
+import { OrcamentoUpdateComponent } from './components/orcamento/orcamento-update/orcamento-update.component';
+import { OrcamentoDeleteComponent } from './components/orcamento/orcamento-delete/orcamento-delete.component'; 
  
 @NgModule({
   declarations: [
@@ -50,7 +59,16 @@ import { TipoFornecedorDeleteComponent } from './components/tipo-fornecedor/tipo
     FornecedorCreateComponent,
     TipoFornecedorCreateComponent,
     FornecedorReadComponent, 
-    TipoFornecedorReadComponent, FornecedorUpdateComponent, TipoFornecedorUpdateComponent, FornecedorDeleteComponent, TipoFornecedorDeleteComponent,
+    TipoFornecedorReadComponent, 
+    FornecedorUpdateComponent, 
+    TipoFornecedorUpdateComponent, 
+    FornecedorDeleteComponent, 
+    TipoFornecedorDeleteComponent, 
+    OrcamentosComponent, 
+    OrcamentoCreateComponent, 
+    OrcamentoReadComponent,
+    OrcamentoUpdateComponent, 
+    OrcamentoDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,9 +88,16 @@ import { TipoFornecedorDeleteComponent } from './components/tipo-fornecedor/tipo
     MatInputModule,
     MatSelectModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatMomentDateModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

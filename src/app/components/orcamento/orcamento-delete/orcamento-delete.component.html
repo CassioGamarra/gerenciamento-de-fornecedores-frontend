@@ -1,0 +1,42 @@
+<mat-card> 
+    <mat-card-title>Excluir Orçamento</mat-card-title>
+    <form [formGroup]="orcamentoForm" autocomplete="off" (ngSubmit)="deleteOrcamento(orcamentoForm.value)"> 
+        <div class="container">  
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Fornecedor *</mat-label>
+                <mat-select readonly formControlName="fornecedor" id="fornecedor"> 
+                    <mat-option *ngFor="let fornecedor of fornecedores" [value]="fornecedor.id">
+                        {{fornecedor.nome}}
+                    </mat-option>
+                </mat-select> 
+            </mat-form-field>  
+        </div>
+        <div class="container">
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Descricao *</mat-label>
+                <textarea  readonly formControlName="descricao" id="descricao"   matInput placeholder="Descricao *"></textarea>  
+            </mat-form-field>
+        </div>
+        <div class="container">  
+            <mat-form-field appearance="outline" class="full-width-field">
+                <mat-label>Valor *</mat-label>
+                <input matInput readonly formControlName="valor" id="valor" placeholder="Valor *"> 
+            </mat-form-field> 
+
+            <mat-form-field appearance="outline">
+                <mat-label>Data de vencimento *</mat-label>
+                <input matInput readonly formControlName="vencimento" id="vencimento" placeholder="Data de vencimento *" [matDatepicker]="vencimento">
+                <mat-datepicker-toggle matSuffix [for]="vencimento"></mat-datepicker-toggle>
+                <mat-datepicker #vencimento></mat-datepicker>  
+            </mat-form-field> 
+        </div>
+        <div class="container"> 
+            <button mat-raised-button type="submit" class="btn-salvar">
+                Excluir
+            </button>
+            <button mat-raised-button type="button" (click)="cancel()">
+                Cancelar
+            </button> 
+        </div>
+    </form>
+</mat-card>
