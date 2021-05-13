@@ -64,12 +64,9 @@ export class FornecedorCreateComponent implements OnInit {
 
   buscarCnpj = (cnpj: string) =>  {   
     cnpj = cnpj.replace(/[^\d]+/g, '');
+     
     
-    this.http.get(environment.BASE_URL_RECEITA_WS+cnpj, {
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      }
-    }).subscribe((data : any)=> {
+    this.http.jsonp(environment.BASE_URL_RECEITA_WS+cnpj, 'callback').subscribe((data : any)=> {
       if(data.erro) {
         this.fornecedorService.showMessage('CNPJ não encontrado', 'info'); 
       } else {   
@@ -82,6 +79,24 @@ export class FornecedorCreateComponent implements OnInit {
         this.buscarCep(data.cep);
       }
     })
+
+    /*this.http.get(environment.BASE_URL_RECEITA_WS+cnpj, {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }, 
+    }).subscribe((data : any)=> {
+      if(data.erro) {
+        this.fornecedorService.showMessage('CNPJ não encontrado', 'info'); 
+      } else {   
+        this.fornecedorForm.patchValue({
+          nome: data.nome,
+          telefone: data.telefone.replace(/[^\d]+/g, ''),
+          cep: data.cep
+        });
+         
+        this.buscarCep(data.cep);
+      }
+    })*/
   }
 
   buscarCep = (cep : string) => { 
